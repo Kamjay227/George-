@@ -3,12 +3,74 @@
 <head>
   <title>George's Website</title>
   <style>
-    body { font-family: Arial; text-align: center; padding: 50px; }
-    h1 { color: #2c3e50; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background: #f0f4f8; }
+
+    nav {
+      background: #2c3e50;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav h1 { color: white; font-size: 20px; }
+    nav a { color: #ccc; text-decoration: none; margin-left: 20px; }
+    nav a:hover { color: white; }
+
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background: #2980b9;
+      color: white;
+    }
+    .hero h2 { font-size: 36px; margin-bottom: 10px; }
+    .hero p { font-size: 18px; }
+
+    .about {
+      max-width: 700px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .about h3 { color: #2c3e50; margin-bottom: 10px; }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #2c3e50;
+      color: #aaa;
+      margin-top: 40px;
+    }
   </style>
 </head>
 <body>
-  <h1>Welcome to George's Website</h1>
-  <p>This is my practice site hosted on GitHub Pages.</p>
+
+  <nav>
+    <h1>George</h1>
+    <div>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <h2>Welcome to George's Website</h2>
+    <p>Student | Developer in Progress | Kenya 🇰🇪</p>
+  </div>
+
+  <div class="about">
+    <h3>About Me</h3>
+    <p>Hi! I'm George, a student learning web development. 
+    This is my practice site built with HTML and hosted 
+    on GitHub Pages.</p>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 George. Built with GitHub Pages.</p>
+  </footer>
+
 </body>
 </html>
