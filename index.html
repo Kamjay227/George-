@@ -9,7 +9,17 @@
 
   <h1>Welcome to my website</h1>
 
-  <div class="blue-square">
+  <div class="blue-square">  
+   <script>
+  const box = document.querySelector(".blue-square");
+
+  let position = 0;
+
+  setInterval(() => {
+    position = position + 5;
+    box.style.transform = "translateX(" + position + "px)";
+  }, 100);
+</script> 
     Click me
   </div>
 
