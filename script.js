@@ -1,5 +1,5 @@
 let x = 0;
-let x2 = 500;
+let x2 = 200;
 let direction = 1;
 let direction2 = -1;
 let hue = 0;
@@ -9,8 +9,8 @@ function moveBox() {
   x += 2 * direction;
   x2 += 2 * direction2;
 
-  if (x > 500 || x < 0) direction *= -1;
-  if (x2 > 500 || x2 < 0) direction2 *= -1;
+  if (x > 400 || x < 0) direction *= -1;
+  if (x2 > 400 || x2 < 0) direction2 *= -1;
 
   hue += 2;
   hue2 += 2;
