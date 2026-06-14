@@ -1,19 +1,9 @@
-body {
-  text-align: center;
-  font-family: Arial;
-  margin-top: 50px;
-}
-
 .blue-square {
-  width: 120px;
-  height: 120px;
-  background-color: blue;
-  position:relative;
-  margin: auto;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  border-radius: 10px;
+    width: 120px;
+    height: 120px;
+    background-color: blue;
+
+    position: absolute;
+    left: 0;
+    top: 100px;
 }
