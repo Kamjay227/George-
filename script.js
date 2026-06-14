@@ -40,3 +40,10 @@ function moveBox() {
 }
 
 moveBox();
+let running = true;
+
+function toggleMove() {
+  running = !running;
+  document.getElementById("btn").textContent = running ? "Stop" : "Start";
+  if (running) moveBox();
+}
