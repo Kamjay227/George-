@@ -8,8 +8,12 @@ let dirY = 1;
 let dirY2 = -1;
 let hue = 0;
 let hue2 = 180;
+let running = true;
+let animationId;
 
 function moveBox() {
+  if (!running) return;
+
   x += 2 * dirX;
   x2 += 2 * dirX2;
   y += 2 * dirY;
@@ -39,11 +43,10 @@ function moveBox() {
   requestAnimationFrame(moveBox);
 }
 
-moveBox();
-let running = true;
-
 function toggleMove() {
   running = !running;
   document.getElementById("btn").textContent = running ? "Stop" : "Start";
   if (running) moveBox();
 }
+
+moveBox();
