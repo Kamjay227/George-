@@ -3,6 +3,7 @@
   height: 120px;
   background-color: blue;
   position: absolute;
+  border-radius: 50%;
   top: 0px;
 }
 #btn {
