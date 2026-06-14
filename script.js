@@ -1,14 +1,11 @@
-let box = document.querySelector(".blue-square");
+let x = 0;
+let direction = 1;
 
-let position = 0;
-let speed = 2;
+function moveBox() {
+  x += 3 * direction;
+  if (x > 500 || x < 0) direction *= -1;
+  document.getElementById("box").style.left = x + "px";
+  requestAnimationFrame(moveBox);
+}
 
-setInterval(() => {
-    position += speed;
-
-    if (position > 300 || position < 0) {
-        speed = -speed;
-    }
-
-    box.style.left = position + "px";
-}, 20);
+moveBox();
