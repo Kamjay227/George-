@@ -1,18 +1,20 @@
 let box = document.querySelector(".blue-square");
 
 let position = 0;
+let direction = 1; // 1 = right, -1 = left
 let speed = 2;
 
 setInterval(() => {
-    position += speed;
+    position = position + (speed * direction);
 
-    // screen limit (IMPORTANT)
-    if (position > 300) {
-        speed = -2; // go left
+    // when it reaches right edge → go left
+    if (position >= 300) {
+        direction = -1;
     }
 
-    if (position < 0) {
-        speed = 2; // go right
+    // when it reaches left edge → go right
+    if (position <= 0) {
+        direction = 1;
     }
 
     box.style.transform = `translateX(${position}px)`;
