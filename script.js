@@ -1,8 +1,15 @@
-setInterval(() => {
-    let box = document.querySelector(".blue-square");
+let box = document.querySelector(".blue-square");
 
-    box.style.transform = 
-        box.style.transform === "translateX(200px)"
-        ? "translateX(0px)"
-        : "translateX(200px)";
-}, 1000);
+let position = 0;
+let direction = 2; // speed and direction
+
+setInterval(() => {
+    position += direction;
+
+    // reverse direction when it hits edges
+    if (position >= 300 || position <= 0) {
+        direction = -direction;
+    }
+
+    box.style.transform = `translateX(${position}px)`;
+}, 20);
