@@ -1,14 +1,18 @@
 let box = document.querySelector(".blue-square");
 
 let position = 0;
-let direction = 2; // speed and direction
+let speed = 2;
 
 setInterval(() => {
-    position += direction;
+    position += speed;
 
-    // reverse direction when it hits edges
-    if (position >= 300 || position <= 0) {
-        direction = -direction;
+    // screen limit (IMPORTANT)
+    if (position > 300) {
+        speed = -2; // go left
+    }
+
+    if (position < 0) {
+        speed = 2; // go right
     }
 
     box.style.transform = `translateX(${position}px)`;
