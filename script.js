@@ -1,20 +1,12 @@
 const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
 
-// Rectangle
-ctx.fillStyle = "red";
-ctx.fillRect(50, 50, 150, 100);
+// Create a gradient from top to bottom
+const skyGrad = ctx.createLinearGradient(0, 0, 0, 300);
+skyGrad.addColorStop(0, "#00003a");   // dark blue at top
+skyGrad.addColorStop(0.6, "#e05a00"); // orange in middle
+skyGrad.addColorStop(1, "#ffcc00");   // yellow at bottom
 
-// Circle
-ctx.beginPath();
-ctx.arc(350, 100, 60, 0, Math.PI * 2);
-ctx.fillStyle = "blue";
-ctx.fill();
-
-// Line
-ctx.beginPath();
-ctx.moveTo(50, 250);
-ctx.lineTo(450, 250);
-ctx.strokeStyle = "yellow";
-ctx.lineWidth = 4;
-ctx.stroke();
+// Fill the whole canvas with it
+ctx.fillStyle = skyGrad;
+ctx.fillRect(0, 0, 500, 300);
