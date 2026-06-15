@@ -1,12 +1,14 @@
-const canvas = document.getElementById("myCanvas");
-const ctx = canvas.getContext("2d");
+// Radial gradient - makes a flat circle look 3D
+const sphereGrad = ctx.createRadialGradient(
+  320, 120, 5,   // inner circle (highlight) x, y, radius
+  340, 140, 80   // outer circle (edge) x, y, radius
+);
+sphereGrad.addColorStop(0, "#ffffff");  // bright white highlight
+sphereGrad.addColorStop(0.3, "#ffaa00"); // golden middle
+sphereGrad.addColorStop(1, "#7a3000");   // dark edge
 
-// Create a gradient from top to bottom
-const skyGrad = ctx.createLinearGradient(0, 0, 0, 300);
-skyGrad.addColorStop(0, "#00003a");   // dark blue at top
-skyGrad.addColorStop(0.6, "#e05a00"); // orange in middle
-skyGrad.addColorStop(1, "#ffcc00");   // yellow at bottom
-
-// Fill the whole canvas with it
-ctx.fillStyle = skyGrad;
-ctx.fillRect(0, 0, 500, 300);
+// Draw the circle using the gradient
+ctx.beginPath();
+ctx.arc(340, 140, 80, 0, Math.PI * 2);
+ctx.fillStyle = sphereGrad;
+ctx.fill();
