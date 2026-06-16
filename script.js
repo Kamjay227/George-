@@ -1,30 +1,27 @@
 const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
 
-let x = 50;
-let y = 150;
-let speedX = 4;
-let speedY = 3;
-
 function draw() {
-  // Semi-transparent clear = creates trail effect
-  ctx.fillStyle = "rgba(17, 17, 17, 0.2)";
+  // Sky gradient
+  const sky = ctx.createLinearGradient(0, 0, 0, 300);
+  sky.addColorStop(0, "#0a0a2a");   // dark blue top
+  sky.addColorStop(1, "#ff6600");   // orange bottom
+  ctx.fillStyle = sky;
   ctx.fillRect(0, 0, 500, 300);
 
-  // Glowing ball
+  // Back hill
   ctx.beginPath();
-  ctx.arc(x, y, 20, 0, Math.PI * 2);
-  ctx.fillStyle = "#ff6600";
-  ctx.shadowColor = "#ff6600";
-  ctx.shadowBlur = 20;
+  ctx.moveTo(0, 300);
+  ctx.quadraticCurveTo(250, 180, 500, 300);
+  ctx.fillStyle = "#1a3a1a";
   ctx.fill();
-  ctx.shadowBlur = 0;
 
-  x += speedX;
-  y += speedY;
-
-  if (x > 480 || x < 20) speedX = -speedX;
-  if (y > 280 || y < 20) speedY = -speedY;
+  // Front hill
+  ctx.beginPath();
+  ctx.moveTo(0, 300);
+  ctx.quadraticCurveTo(150, 220, 500, 300);
+  ctx.fillStyle = "#2d6a2d";
+  ctx.fill();
 
   requestAnimationFrame(draw);
 }
