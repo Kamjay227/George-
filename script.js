@@ -1,21 +1,22 @@
 const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
 
-let sunY = 320;  // sun starts below canvas
+let sunY = 320;
+let progress = 0; // 0 = night, 1 = full day
 
 function draw() {
   ctx.clearRect(0, 0, 500, 300);
 
-  // Sky - changes as sun rises
+  // Sky changes from night to day
   const sky = ctx.createLinearGradient(0, 0, 0, 300);
-  sky.addColorStop(0, "#0a0a2a");
-  sky.addColorStop(1, "#ff6600");
+  sky.addColorStop(0, `hsl(240, 80%, ${5 + progress * 40}%)`);
+  sky.addColorStop(1, `hsl(${20 + progress * 20}, 90%, ${30 + progress * 30}%)`);
   ctx.fillStyle = sky;
   ctx.fillRect(0, 0, 500, 300);
 
   // Sun glow
-  const glow = ctx.createRadialGradient(250, sunY, 0, 250, sunY, 80);
-  glow.addColorStop(0, "rgba(255,220,50,0.6)");
+  const glow = ctx.createRadialGradient(250, sunY, 0, 250, sunY, 100);
+  glow.addColorStop(0, `rgba(255,220,50,${0.3 + progress * 0.4})`);
   glow.addColorStop(1, "rgba(255,100,0,0)");
   ctx.fillStyle = glow;
   ctx.fillRect(0, 0, 500, 300);
@@ -34,18 +35,21 @@ function draw() {
   ctx.beginPath();
   ctx.moveTo(0, 300);
   ctx.quadraticCurveTo(250, 180, 500, 300);
-  ctx.fillStyle = "#1a3a1a";
+  ctx.fillStyle = `hsl(120, 40%, ${10 + progress * 15}%)`;
   ctx.fill();
 
   // Front hill
   ctx.beginPath();
   ctx.moveTo(0, 300);
   ctx.quadraticCurveTo(150, 220, 500, 300);
-  ctx.fillStyle = "#2d6a2d";
+  ctx.fillStyle = `hsl(120, 50%, ${15 + progress * 20}%)`;
   ctx.fill();
 
-  // Move sun up, stop at y=80
-  if (sunY > 80) sunY -= 0.5;
+  // Move sun and update progress
+  if (sunY > 80) {
+    sunY -= 0.5;
+    progress = (320 - sunY) / 240;
+  }
 
   requestAnimationFrame(draw);
 }
