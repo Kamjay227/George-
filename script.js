@@ -5,15 +5,22 @@ const ctx = canvas.getContext("2d");
 ctx.fillStyle = "#111";
 ctx.fillRect(0, 0, 500, 300);
 
-// Triangle using paths
-ctx.beginPath();        // start drawing
-ctx.moveTo(250, 30);    // top point
-ctx.lineTo(450, 270);   // bottom right
-ctx.lineTo(50, 270);    // bottom left
-ctx.closePath();        // connect back to start
-
-ctx.fillStyle = "purple";
+// Smooth hill using quadratic curve
+ctx.beginPath();
+ctx.moveTo(0, 300);          // bottom left
+ctx.quadraticCurveTo(
+  250, 50,                   // control point (pulls the curve)
+  500, 300                   // end point bottom right
+);
+ctx.closePath();
+ctx.fillStyle = "#2d6a2d";   // green hill
 ctx.fill();
-ctx.strokeStyle = "white";
-ctx.lineWidth = 2;
+
+// Smooth wave line
+ctx.beginPath();
+ctx.moveTo(0, 200);
+ctx.quadraticCurveTo(125, 150, 250, 200);
+ctx.quadraticCurveTo(375, 250, 500, 200);
+ctx.strokeStyle = "#00aaff";
+ctx.lineWidth = 3;
 ctx.stroke();
