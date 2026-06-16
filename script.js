@@ -29,3 +29,32 @@ ctx.fillStyle = glow;
 ctx.beginPath();
 ctx.arc(80, 70, 80, 0, Math.PI * 2);
 ctx.fill();
+// House walls
+ctx.fillStyle = "#e8c49a";
+ctx.fillRect(170, 140, 160, 90);
+
+// Roof
+ctx.beginPath();
+ctx.moveTo(155, 140);   // left corner
+ctx.lineTo(250, 70);    // top peak
+ctx.lineTo(345, 140);   // right corner
+ctx.closePath();
+ctx.fillStyle = "#c0392b";
+ctx.fill();
+
+// Door
+ctx.fillStyle = "#8B4513";
+ctx.fillRect(230, 185, 40, 45);
+
+// Left window
+ctx.fillStyle = "#87ceeb";
+ctx.fillRect(185, 160, 35, 30);
+ctx.strokeStyle = "#555";
+ctx.lineWidth = 2;
+ctx.strokeRect(185, 160, 35, 30);
+
+// Right window
+ctx.fillStyle = "#87ceeb";
+ctx.fillRect(280, 160, 35, 30);
+ctx.strokeStyle = "#555";
+ctx.strokeRect(280, 160, 35, 30);
