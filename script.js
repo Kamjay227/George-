@@ -5,18 +5,21 @@ const ctx = canvas.getContext("2d");
 ctx.fillStyle = "#111";
 ctx.fillRect(0, 0, 500, 300);
 
-// Basic text
+// Gradient text
+ctx.font = "bold 60px Arial";
+const textGrad = ctx.createLinearGradient(50, 0, 450, 0);
+textGrad.addColorStop(0, "#ff0000");
+textGrad.addColorStop(0.5, "#ffcc00");
+textGrad.addColorStop(1, "#00aaff");
+ctx.fillStyle = textGrad;
+ctx.fillText("GEORGE", 60, 120);
+
+// Text with shadow effect
+ctx.shadowColor = "rgba(0, 170, 255, 0.8)";
+ctx.shadowBlur = 20;
 ctx.fillStyle = "white";
-ctx.font = "40px Arial";
-ctx.fillText("Hello Canvas!", 80, 80);
+ctx.font = "bold 35px Arial";
+ctx.fillText("Web Developer", 90, 200);
 
-// Colored text
-ctx.fillStyle = "#ffcc00";
-ctx.font = "bold 30px Arial";
-ctx.fillText("George Kamjay", 120, 150);
-
-// Outlined text (no fill)
-ctx.strokeStyle = "#00aaff";
-ctx.lineWidth = 1;
-ctx.font = "italic 25px Arial";
-ctx.strokeText("Web Developer", 140, 220);
+// Reset shadow
+ctx.shadowBlur = 0;
